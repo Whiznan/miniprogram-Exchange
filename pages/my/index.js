@@ -6,7 +6,6 @@ Page({
 
   data: {
     isLoad: false,
-    service: [],
     personalInfo: {},
     gridList: [
       {
@@ -41,9 +40,7 @@ Page({
     ],
   },
 
-  onLoad() {
-    this.getServiceList();
-  },
+  onLoad() {},
 
   async onShow() {
     const Token = wx.getStorageSync('access_token');
@@ -55,13 +52,6 @@ Page({
         personalInfo,
       });
     }
-  },
-
-  getServiceList() {
-    request('/api/getServiceList').then((res) => {
-      const { service } = res.data.data;
-      this.setData({ service });
-    });
   },
 
   async getPersonalInfo() {

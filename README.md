@@ -31,10 +31,6 @@
 
 <img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/setting-1.png">
 
-### 消息中心
-
-<img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/message-1.png">
-
 
 ## 开发预览
 ### 目录结构（TODO: 生成目录结构树）

@@ -1,23 +1,26 @@
 import Message from 'tdesign-miniprogram/message/index';
 import request from '~/api/request';
 
-// 获取应用实例
-// const app = getApp()
-
 Page({
   data: {
     enable: false,
     swiperList: [],
     cardInfo: [],
-    // 发布
+    filteredCardInfo: [],
+    categories: [
+      { label: '二手', value: 'second-hand' },
+      { label: '宠物', value: 'pet' },
+      { label: '互助', value: 'help' },
+      { label: '广场', value: 'square' },
+    ],
+    activeCategory: 'second-hand',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
+    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'),
   },
-  // 生命周期
   async onReady() {
     const [cardRes, swiperRes] = await Promise.all([
       request('/home/cards').then((res) => res.data),
@@ -26,7 +29,7 @@ Page({
 
     this.setData({
       cardInfo: cardRes.data,
-      focusCardInfo: cardRes.data.slice(0, 3),
+      filteredCardInfo: cardRes.data,
       swiperList: swiperRes.data,
     });
   },
@@ -46,6 +49,17 @@ Page({
       this.showOperMsg(content);
     }
   },
+  onCategoryChange(e) {
+    const { value } = e.detail;
+    const { cardInfo } = this.data;
+    const filtered = cardInfo.filter((card) =>
+      card.tags.some((tag) => tag.text === this.data.categories.find((c) => c.value === value)?.label)
+    );
+    this.setData({
+      activeCategory: value,
+      filteredCardInfo: filtered.length > 0 ? filtered : cardInfo,
+    });
+  },
   onRefresh() {
     this.refresh();
   },
@@ -59,9 +73,18 @@ Page({
     ]);
 
     setTimeout(() => {
+      const { activeCategory, categories } = this.data;
+      let filtered = cardRes.data;
+      const matched = cardRes.data.filter((card) =>
+        card.tags.some((tag) => tag.text === categories.find((c) => c.value === activeCategory)?.label)
+      );
+      if (matched.length > 0) {
+        filtered = matched;
+      }
       this.setData({
         enable: false,
         cardInfo: cardRes.data,
+        filteredCardInfo: filtered,
         swiperList: swiperRes.data,
       });
     }, 1500);

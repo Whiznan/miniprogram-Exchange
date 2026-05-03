@@ -25,7 +25,7 @@ Page({
     config: {
       count: 1,
     },
-    tags: ['AI绘画', '版权素材', '原创', '风格灵动'],
+    tags: ['二手', '宠物', '互助', '广场'],
   },
   handleSuccess(e) {
     const { files } = e.detail;
