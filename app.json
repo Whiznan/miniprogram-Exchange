@@ -20,11 +20,6 @@
       "pages": ["login"]
     },
     {
-      "root": "pages/loginCode",
-      "name": "loginCode",
-      "pages": ["loginCode"]
-    },
-    {
       "root": "pages/dataCenter",
       "name": "dataCenter",
       "pages": ["index"]

@@ -7,68 +7,21 @@
     padding: 16rpx 32rpx 40rpx;
   }
 
-  &__input {
-    .input-label {
-      display: flex;
-      padding-right: 32rpx;
-      box-sizing: border-box;
-      border-right: 1rpx solid #e7e7e7;
-    }
-
-    .input-icon {
-      margin-left: 8rpx;
-    }
-  }
-
-  &__tips {
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 24rpx;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 40rpx;
-    margin: 24rpx 32rpx 32rpx;
-  }
-
   &__button {
-    margin: 0 32rpx;
+    margin: 64rpx 32rpx;
   }
 
-  &__password--forget {
-    display: flex;
-    font-size: 24rpx;
-    align-items: center;
-    margin: 32rpx;
-    line-height: 40rpx;
+  .wx-login-btn {
+    background-color: #07c160;
+    color: #fff;
+    font-size: 32rpx;
+    border-radius: 8rpx;
+    border: none;
   }
 
-  &__others {
-    margin: 64rpx 32rpx auto 32rpx;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    &-label {
-      min-width: 96rpx;
-      color: rgba(0, 0, 0, 0.6);
-      font-size: 24rpx;
-      line-height: 40rpx;
-    }
-
-    &-buttons {
-      flex: 1;
-      margin-left: 32rpx;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      .button {
-        margin: 0 !important;
-
-        &:not(:last-child) {
-          margin-right: 32rpx !important;
-        }
-      }
-    }
+  .wx-login-btn[disabled] {
+    background-color: #e0e0e0;
+    color: #999;
   }
 
   // 覆盖组件样式

@@ -1,5 +1,3 @@
-import getSendMessage from './getSendMessage';
-import postCodeVerify from './postCodeVerify';
-import postPasswordLogin from './postPasswordLogin';
+import wxLogin from './wxLogin';
 
-export default [getSendMessage, postCodeVerify, postPasswordLogin];
+export default [wxLogin];

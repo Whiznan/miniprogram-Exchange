@@ -26,6 +26,7 @@ Page({
       count: 1,
     },
     tags: ['二手', '宠物', '互助', '广场'],
+    activeTagIndex: 0,
   },
   handleSuccess(e) {
     const { files } = e.detail;
@@ -39,6 +40,12 @@ Page({
     originFiles.splice(index, 1);
     this.setData({
       originFiles,
+    });
+  },
+  onTagChange(e) {
+    const { index } = e.currentTarget.dataset;
+    this.setData({
+      activeTagIndex: index,
     });
   },
   gotoMap() {

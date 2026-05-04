@@ -18,23 +18,6 @@ Page({
       ],
       [
         {
-          title: '深色模式',
-          url: '',
-          icon: 'image',
-        },
-        {
-          title: '字体大小',
-          url: '',
-          icon: 'chart',
-        },
-        {
-          title: '播放设置',
-          url: '',
-          icon: 'sound',
-        },
-      ],
-      [
-        {
           title: '账号安全',
           url: '',
           icon: 'secured',

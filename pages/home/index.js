@@ -27,10 +27,14 @@ Page({
       request('/home/swipers').then((res) => res.data),
     ]);
 
+    const { activeCategory, categories } = this.data;
+    const matched = cardRes.filter((card) =>
+      card.tags.some((tag) => tag.text === categories.find((c) => c.value === activeCategory)?.label)
+    );
     this.setData({
-      cardInfo: cardRes.data,
-      filteredCardInfo: cardRes.data,
-      swiperList: swiperRes.data,
+      cardInfo: cardRes,
+      filteredCardInfo: matched.length > 0 ? matched : cardRes,
+      swiperList: swiperRes,
     });
   },
   onLoad(option) {
@@ -74,8 +78,8 @@ Page({
 
     setTimeout(() => {
       const { activeCategory, categories } = this.data;
-      let filtered = cardRes.data;
-      const matched = cardRes.data.filter((card) =>
+      let filtered = cardRes;
+      const matched = cardRes.filter((card) =>
         card.tags.some((tag) => tag.text === categories.find((c) => c.value === activeCategory)?.label)
       );
       if (matched.length > 0) {
@@ -83,9 +87,9 @@ Page({
       }
       this.setData({
         enable: false,
-        cardInfo: cardRes.data,
+        cardInfo: cardRes,
         filteredCardInfo: filtered,
-        swiperList: swiperRes.data,
+        swiperList: swiperRes,
       });
     }, 1500);
   },
