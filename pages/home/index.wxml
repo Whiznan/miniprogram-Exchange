@@ -24,7 +24,8 @@
 </view>
 
 <view class="home-release">
-  <t-button theme="primary" size="large" icon="add" shape="round" bindtap="goRelease">
+  <t-button theme="primary" size="large" shape="round" bindtap="goRelease">
+    <image src="/static/iconfont/发布.svg" style="width:28rpx;height:28rpx;vertical-align:middle;margin-right:8rpx" />
     发布
   </t-button>
 </view>

@@ -1,4 +1,10 @@
 <t-tab-bar value="{{ value }}" theme="tag" split="{{ false }}" bind:change="handleChange">
-  <t-tab-bar-item icon="home" value="home">首页</t-tab-bar-item>
-  <t-tab-bar-item icon="user" value="my">我的</t-tab-bar-item>
+  <t-tab-bar-item value="home">
+    <image slot="icon" src="/static/iconfont/首页.svg" style="width:28rpx;height:28rpx" />
+    首页
+  </t-tab-bar-item>
+  <t-tab-bar-item value="my">
+    <image slot="icon" src="/static/iconfont/我的.svg" style="width:28rpx;height:28rpx" />
+    我的
+  </t-tab-bar-item>
 </t-tab-bar>

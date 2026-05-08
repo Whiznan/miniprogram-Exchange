@@ -10,11 +10,11 @@
         <view class="my-info__person" slot="description">
           <view class="name">{{personalInfo.name}}</view>
           <view class="tags">
-            <t-tag class="tag" variant="light" icon="discount">{{personalInfo.star}}</t-tag>
-            <t-tag class="tag" variant="light" icon="location">{{personalInfo.city}}</t-tag>
+            <t-tag class="tag" variant="light">{{personalInfo.star}}</t-tag>
+            <t-tag class="tag" variant="light">{{personalInfo.city}}</t-tag>
           </view>
         </view>
-        <t-icon slot="right-icon" name="edit" size="40rpx" color="#000000e6" bindtap="onNavigateTo" />
+        <image slot="right-icon" src="/static/iconfont/编辑.svg" style="width:40rpx;height:40rpx" bindtap="onNavigateTo" />
       </t-cell>
       <t-cell
         wx:if="{{!isLoad}}"
@@ -24,7 +24,7 @@
         t-class-center="cell-class-center"
         bindtap="onLogin"
       >
-        <t-avatar slot="left-icon" icon="user" size="128rpx" />
+        <t-avatar slot="left-icon" size="128rpx" />
       </t-cell>
     </t-cell-group>
     <t-divider t-class="divider-class" />
@@ -34,7 +34,7 @@
         wx:for-item="gridItem"
         wx:key="type"
         text="{{gridItem.name}}"
-        icon="{{gridItem.icon}}"
+        image="{{gridItem.img}}"
         class="grid-item {{gridItem.type === 'all' ? 'split-line' : ''}}"
         data-data="{{gridItem}}"
         bindclick="onEleClick"
@@ -49,11 +49,12 @@
       wx:key="type"
       title="{{item.name}}"
       url="{{item.url}}"
-      leftIcon="{{item.icon}}"
       hover
       arrow
       data-data="{{item}}"
       bindclick="onEleClick"
-    />
+    >
+      <image slot="left-icon" src="{{item.img}}" style="width:32rpx;height:32rpx" />
+    </t-cell>
   </t-cell-group>
 </view>
