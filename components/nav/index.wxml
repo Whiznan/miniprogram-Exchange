@@ -3,10 +3,13 @@
     <view slot="left" wx:if="{{navType === 'search'}}">
       <view class="home-navbar__left">
         <t-search
+          leftIcon=""
           shape="round"
           placeholder="请搜索你想要的内容"
           bindtap="searchTurn"
-        />
+        >
+          <image slot="left-icon" src="/static/iconfont/搜索.svg" style="width:32rpx;height:32rpx" />
+        </t-search>
       </view>
     </view>
   </t-navbar>

@@ -24,7 +24,7 @@
         t-class-center="cell-class-center"
         bindtap="onLogin"
       >
-        <t-avatar slot="left-icon" size="128rpx" />
+        <t-avatar image="/static/iconfont/未登录.svg" slot="left-icon" size="128rpx" />
       </t-cell>
     </t-cell-group>
     <t-divider t-class="divider-class" />
@@ -43,17 +43,16 @@
   </view>
 
   <t-cell-group theme="card">
-    <t-cell
-      wx:for="{{settingList}}"
-      wx:for-item="item"
-      wx:key="type"
-      title="{{item.name}}"
-      url="{{item.url}}"
-      hover
-      arrow
-      data-data="{{item}}"
-      bindclick="onEleClick"
-    >
+      <t-cell
+        wx:for="{{settingList}}"
+        wx:for-item="item"
+        wx:key="type"
+        title="{{item.name}}"
+        url="{{item.url}}"
+        hover
+        data-data="{{item}}"
+        bindclick="onEleClick"
+      >
       <image slot="left-icon" src="{{item.img}}" style="width:32rpx;height:32rpx" />
     </t-cell>
   </t-cell-group>
