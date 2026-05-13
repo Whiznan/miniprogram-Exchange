@@ -1,4 +1,6 @@
-<t-navbar title="搜索" left-arrow />
+<t-navbar title="搜索">
+  <image slot="left" src="/static/iconfont/返回.svg" style="width:48rpx;height:48rpx;padding:0 16rpx" bindtap="goBack" />
+</t-navbar>
 <view class="page search-page">
   <view class="search-input">
     <t-search

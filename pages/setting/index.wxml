@@ -1,4 +1,6 @@
-<t-navbar title="设置" left-arrow />
+<t-navbar title="设置">
+  <image slot="left" src="/static/iconfont/返回.svg" style="width:48rpx;height:48rpx;padding:0 16rpx" bindtap="goBack" />
+</t-navbar>
 <view class="setting">
   <t-cell-group wx:for="{{menuData}}" wx:for-item="item" wx:key="index" t-class="cell-group-class" theme="card">
     <t-cell

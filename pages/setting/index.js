@@ -31,6 +31,10 @@ Page({
     ],
   },
 
+  goBack() {
+    wx.navigateBack();
+  },
+
   onEleClick(e) {
     const { title, url } = e.currentTarget.dataset.data;
     if (url) return;

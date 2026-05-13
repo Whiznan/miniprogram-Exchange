@@ -6,10 +6,7 @@ Page({
     personInfo: {
       name: '',
       gender: 0,
-      birth: '',
       address: [],
-      introduction: '',
-      photos: [],
     },
     genderOptions: [
       {
@@ -25,21 +22,11 @@ Page({
         value: 2,
       },
     ],
-    birthVisible: false,
-    birthStart: '1970-01-01',
-    birthEnd: '2025-03-01',
-    birthTime: 0,
-    birthFilter: (type, options) => (type === 'year' ? options.sort((a, b) => b.value - a.value) : options),
     addressText: '',
     addressVisible: false,
     provinces: [],
     cities: [],
 
-    gridConfig: {
-      column: 3,
-      width: 160,
-      height: 160,
-    },
   },
 
   onLoad() {
@@ -131,39 +118,18 @@ Page({
     });
   },
 
+  goBack() {
+    wx.navigateBack();
+  },
+
   onNameChange(e) {
     this.personInfoFieldChange('name', e);
   },
 
-  onGenderChange(e) {
-    this.personInfoFieldChange('gender', e);
-  },
-
-  onIntroductionChange(e) {
-    this.personInfoFieldChange('introduction', e);
-  },
-
-  onPhotosRemove(e) {
-    const { index } = e.detail;
-    const { photos } = this.data.personInfo;
-
-    photos.splice(index, 1);
+  onGenderTap(e) {
+    const { value } = e.currentTarget.dataset;
     this.setData({
-      'personInfo.photos': photos,
-    });
-  },
-
-  onPhotosSuccess(e) {
-    const { files } = e.detail;
-    this.setData({
-      'personInfo.photos': files,
-    });
-  },
-
-  onPhotosDrop(e) {
-    const { files } = e.detail;
-    this.setData({
-      'personInfo.photos': files,
+      'personInfo.gender': value,
     });
   },
 

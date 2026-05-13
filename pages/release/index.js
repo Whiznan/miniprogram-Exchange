@@ -28,6 +28,10 @@ Page({
     tags: ['二手', '宠物', '互助', '广场'],
     activeTagIndex: 0,
   },
+  goBack() {
+    wx.navigateBack();
+  },
+
   handleSuccess(e) {
     const { files } = e.detail;
     this.setData({

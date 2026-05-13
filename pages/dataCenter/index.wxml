@@ -1,4 +1,6 @@
-<t-navbar title="数据中心" left-arrow />
+<t-navbar title="数据中心">
+  <image slot="left" src="/static/iconfont/返回.svg" style="width:48rpx;height:48rpx;padding:0 16rpx" bindtap="goBack" />
+</t-navbar>
 <view class="data-center">
   <view class="card first">
     <view class="card-header">

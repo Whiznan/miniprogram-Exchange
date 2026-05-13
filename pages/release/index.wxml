@@ -1,4 +1,6 @@
-<t-navbar title="发布动态" left-arrow />
+<t-navbar title="发布动态">
+  <image slot="left" src="/static/iconfont/返回.svg" style="width:48rpx;height:48rpx;padding:0 16rpx" bindtap="goBack" />
+</t-navbar>
 <view class="page">
   <view class="release-container">
     <view class="upload box">
@@ -16,8 +18,9 @@
       </t-cell>
     </view>
     <view class="location box">
-      <t-cell title="所在位置" hover arrow bindtap="gotoMap">
+      <t-cell title="所在位置" hover bindtap="gotoMap">
         <image slot="left-icon" src="/static/iconfont/位置.svg" style="width:32rpx;height:32rpx" />
+        <image slot="right-icon" src="/static/iconfont/向右.svg" style="width:32rpx;height:32rpx" />
       </t-cell>
     </view>
     <view class="btngroup box">

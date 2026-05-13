@@ -17,6 +17,10 @@ Page({
     smallitemWidth: null,
   },
 
+  goBack() {
+    wx.navigateBack();
+  },
+
   onLoad() {
     this.init();
   },

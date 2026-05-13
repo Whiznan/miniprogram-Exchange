@@ -6,6 +6,10 @@ Page({
     radioValue: '',
   },
 
+  goBack() {
+    wx.navigateBack();
+  },
+
   onCheckChange(e) {
     const { value } = e.detail;
     this.setData({

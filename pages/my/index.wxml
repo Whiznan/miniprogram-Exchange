@@ -10,11 +10,10 @@
         <view class="my-info__person" slot="description">
           <view class="name">{{personalInfo.name}}</view>
           <view class="tags">
-            <t-tag class="tag" variant="light">{{personalInfo.star}}</t-tag>
             <t-tag class="tag" variant="light">{{personalInfo.city}}</t-tag>
           </view>
         </view>
-        <image slot="right-icon" src="/static/iconfont/编辑.svg" style="width:40rpx;height:40rpx" bindtap="onNavigateTo" />
+        <image slot="right-icon" src="/static/iconfont/编辑个人.svg" style="width:40rpx;height:40rpx" bindtap="onNavigateTo" />
       </t-cell>
       <t-cell
         wx:if="{{!isLoad}}"
