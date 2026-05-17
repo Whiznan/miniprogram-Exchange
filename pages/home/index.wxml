@@ -8,6 +8,11 @@
           bind:refresh="onRefresh"
           loadingTexts="{{['下拉刷新', '松手刷新', '正在刷新', '刷新完成']}}"
         >
+          <view class="home-notice" wx:if="{{notices.length > 0}}">
+            <view class="home-notice-item" wx:for="{{notices}}" wx:key="id">
+              <text class="home-notice-title">{{item.title}}</text>
+            </view>
+          </view>
           <view class="home-card-list">
             <card
               wx:for="{{filteredCardInfo}}"

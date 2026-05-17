@@ -7,6 +7,7 @@ Page({
     swiperList: [],
     cardInfo: [],
     filteredCardInfo: [],
+    notices: [],
     categories: [
       { label: '二手', value: 'second-hand' },
       { label: '宠物', value: 'pet' },
@@ -26,6 +27,17 @@ Page({
       request('/home/cards').then((res) => res.data),
       request('/home/swipers').then((res) => res.data),
     ]);
+
+    wx.request({
+      url: 'http://127.0.0.1:8000/app01/banner/',
+      method: 'GET',
+      success: (res) => {
+        if (res.data && res.data.notice) {
+          this.setData({ notices: [res.data.notice] });
+        }
+      },
+      fail: () => {},
+    });
 
     const { activeCategory, categories } = this.data;
     const matched = cardRes.filter((card) =>
@@ -75,6 +87,17 @@ Page({
       request('/home/cards').then((res) => res.data),
       request('/home/swipers').then((res) => res.data),
     ]);
+
+    wx.request({
+      url: 'http://127.0.0.1:8000/app01/banner/',
+      method: 'GET',
+      success: (res) => {
+        if (res.data && res.data.notice) {
+          this.setData({ notices: [res.data.notice] });
+        }
+      },
+      fail: () => {},
+    });
 
     setTimeout(() => {
       const { activeCategory, categories } = this.data;
